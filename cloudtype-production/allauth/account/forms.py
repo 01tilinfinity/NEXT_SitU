@@ -107,7 +107,7 @@ class LoginForm(forms.Form):
             login_field = forms.EmailField(label=_("Email"), widget=login_widget)
         elif app_settings.AUTHENTICATION_METHOD == AuthenticationMethod.USERNAME:
             login_widget = forms.TextInput(
-                attrs={"placeholder": _("Username"), "autocomplete": "username"}
+                attrs={"placeholder": _("아이디"), "autocomplete": "username"}
             )
             login_field = forms.CharField(
                 label=_("Username"),
