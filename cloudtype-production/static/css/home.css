@@ -28,24 +28,26 @@ body {
 .button-grid {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    grid-template-rows: repeat(2, 1fr);
-    gap: 4px;
+    gap: 10px;
     justify-items: center;
     align-items: center;
     margin-bottom: 30px;
 }
 
 .square-button {
-    width: 100px;
-    height: 100px;
+    width: 100%;
+    aspect-ratio: 1 / 1;
     border-radius: 20px;
     display: flex;
     align-items: center;
     justify-content: center;
     text-align: center;
-    font-size: 18px;
+    font-size: 16px;
     font-weight: 700;
-    margin: 0px;
+    margin: 0;
+    padding: 10px;
+    word-break: keep-all;
+    white-space: nowrap;
 }
 
 .square-button.btn-primary {
@@ -60,18 +62,15 @@ body {
     border: 2px solid var(--primary-color);
 }
 
-.square-button.btn-outline-primary:hover {
-    background-color: var(--primary-color);
-    color: white;
-}
-
+.square-button.btn-outline-primary:hover,
 .square-button:hover {
     background-color: #e66a2e;
+    color: white;
 }
 
 h1.mt-4 {
     font-size: 1.2rem;
-    margin: 0px;
+    margin: 0;
 }
 
 span {
@@ -94,6 +93,7 @@ p {
     justify-content: space-between;
     align-items: center;
     flex-wrap: wrap;
+    gap: 10px;
 }
 
 #current-location-button {
@@ -102,7 +102,7 @@ p {
     border: none;
     padding: 5px 10px;
     border-radius: 5px;
-    font-size: 0.7rem;
+    font-size: 0.9rem;
     font-weight: 700;
     cursor: pointer;
 }
@@ -151,36 +151,14 @@ p {
 .card-title {
     font-size: 18px;
     margin-bottom: 10px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 .card-text {
     font-size: 14px;
     color: #757575;
-}
-
-div.card-content {
-    border: 1px;
-    border-color: #333333;
-}
-
-.btn:hover {
-    background-color: #e66a2e;
-}
-
-.btn-outline-primary {
-    background-color: white;
-    color: var(--primary-color);
-    border: 2px solid var(--primary-color);
-}
-
-.btn-outline-primary:hover {
-    background-color: var(--primary-color);
-    color: white;
-}
-
-.button-container {
-    display: flex;
-    gap: 10px;
 }
 
 .seat {
@@ -189,6 +167,10 @@ div.card-content {
     right: 15px;
     background-color: #ff8244;
     border: none;
+    padding: 5px 10px;
+    border-radius: 5px;
+    color: white;
+    font-weight: 700;
 }
 
 @media (max-width: 768px) {
@@ -198,12 +180,10 @@ div.card-content {
 
     .button-grid {
         grid-template-columns: repeat(4, 1fr);
-        gap: 2px;
+        gap: 5px;
     }
 
     .square-button {
-        width: 70px;
-        height: 70px;
         font-size: 14px;
     }
 
@@ -221,19 +201,38 @@ div.card-content {
     }
 
     .card-content {
-        flex-direction: column;
+        flex-direction: row;
     }
 
     .card-image {
-        flex: 0 0 auto;
+        flex: 0 0 30%;
     }
 
     .card-body {
-        padding: 15px;
+        padding: 10px;
     }
 
     .seat {
         position: static;
         margin-top: 10px;
+        width: 100%;
+    }
+}
+
+@media (max-width: 480px) {
+    .button-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .square-button {
+        font-size: 12px;
+    }
+
+    .card-title {
+        font-size: 16px;
+    }
+
+    .card-text {
+        font-size: 12px;
     }
 }
