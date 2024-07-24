@@ -110,8 +110,10 @@ body {
     margin: 0;
 }
 
+/* 마진 늘림*/
 #floor1 .seat_container.bottom {
     display: flex;
+    margin-bottom: 100px;
 }
 
 #floor1 .seat_container.bottom .seat {
