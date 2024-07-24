@@ -81,8 +81,10 @@
                             resultsList.append(
                                 '<li class="card mb-3">' +
                                     '<div class="card-content">' +
-                                    '<div class="card-image">' +
-                                    '<img src="{% static 'img/cafe_photo_1.png' %}" class="card-img" alt="' +
+                                   '<div class="card-image">' +
+                                    '<img src="/static/img/' +
+                                    cafe.id +
+                                    '.jpg" class="card-img" alt="' +
                                     cafe.cafe_name +
                                     '" />' +
                                     '</div>' +
