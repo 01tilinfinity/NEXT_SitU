@@ -197,13 +197,33 @@ def ajax_search(request):
 
     if filters_applied:
         if plug_filter and backseat_filter:
-            cafes = cafes.filter(seat__seat_status='available', seat__plug=True, seat__backseat=True).distinct()
+            cafes = cafes.filter(
+                Q(seats__seat_status='available') & 
+                Q(seats__plug=True) & 
+                Q(seats__backseat=True)
+            ).distinct()
         elif plug_filter:
-            cafes = cafes.filter(seat__seat_status='available', seat__plug=True).distinct()
+            cafes = cafes.filter(
+                Q(seats__seat_status='available') & 
+                Q(seats__plug=True)
+            ).distinct()
         elif backseat_filter:
-            cafes = cafes.filter(seat__seat_status='available', seat__backseat=True).distinct()
+            cafes = cafes.filter(
+                Q(seats__seat_status='available') & 
+                Q(seats__backseat=True)
+            ).distinct()
 
-    results = [{'id': cafe.id, 'cafe_name': cafe.cafe_name, 'cafe_address': cafe.cafe_address} for cafe in cafes]
+    results = [
+        {
+            'id': cafe.id,
+            'cafe_name': cafe.cafe_name,
+            'cafe_address': cafe.cafe_address,
+            'cafe_time': cafe.cafe_time,
+            'empty_seats': cafe.empty_seats,  # empty_seats 필드를 응답에 포함
+        } 
+        for cafe in cafes
+    ]
+
     return JsonResponse(results, safe=False)
 
 
