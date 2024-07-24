@@ -36,7 +36,7 @@ form {
     display: flex;
     gap: 10px;
     flex-wrap: wrap;
-    justify-content: flex-start; /* 왼쪽 정렬로 변경 */
+    justify-content: space-around; /* 왼쪽 정렬로 변경 */
     width: 100%; /* 전체 너비를 사용하도록 설정 */
     align-items: center; /* 세로 중앙 정렬 */
 }
