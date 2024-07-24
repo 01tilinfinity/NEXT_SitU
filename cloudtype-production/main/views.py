@@ -2,7 +2,8 @@ from django.shortcuts import render, get_object_or_404, redirect
 from django.contrib.auth import login as auth_login, logout as auth_logout
 from django.contrib.auth import get_user, authenticate, login
 from django.contrib.auth.decorators import login_required
-from .models import User, Cafe, Seat, Favorite, Reservation
+from .models import User, Seat, Favorite, Reservation
+from accounts.models import Cafe
 from django.http import HttpResponseBadRequest
 from django.db.models import Q
 from django.contrib import messages
