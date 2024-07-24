@@ -9,14 +9,14 @@ body {
     padding: 0;
     color: var(--secondary-color);
     letter-spacing: -0.05rem;
-    height: 100%;
+    min-height: 100vh;
 }
 
 .screen {
     display: flex;
     justify-content: center;
     padding: 20px;
-    height: 100%;
+    min-height: 100vh;
 }
 
 .content-container {
@@ -43,10 +43,9 @@ body {
     align-items: center;
     justify-content: center;
     text-align: center;
-    font-size: 1.2rem;
-    margin: 0px;
     font-size: 18px;
     font-weight: 700;
+    margin: 0px;
 }
 
 .square-button.btn-primary {
@@ -94,6 +93,7 @@ p {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    flex-wrap: wrap;
 }
 
 #current-location-button {
@@ -119,7 +119,8 @@ p {
 }
 
 .card {
-    width: 480px;
+    width: 100%;
+    max-width: 480px;
     margin-bottom: 20px;
     border: 1px solid #e0e0e0;
     border-radius: 10px;
@@ -188,4 +189,51 @@ div.card-content {
     right: 15px;
     background-color: #ff8244;
     border: none;
+}
+
+@media (max-width: 768px) {
+    .content-container {
+        padding: 0 15px;
+    }
+
+    .button-grid {
+        grid-template-columns: repeat(4, 1fr);
+        gap: 2px;
+    }
+
+    .square-button {
+        width: 70px;
+        height: 70px;
+        font-size: 14px;
+    }
+
+    span {
+        font-size: 2.5rem;
+    }
+
+    .location-search {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    #current-location-button {
+        margin-top: 10px;
+    }
+
+    .card-content {
+        flex-direction: column;
+    }
+
+    .card-image {
+        flex: 0 0 auto;
+    }
+
+    .card-body {
+        padding: 15px;
+    }
+
+    .seat {
+        position: static;
+        margin-top: 10px;
+    }
 }
