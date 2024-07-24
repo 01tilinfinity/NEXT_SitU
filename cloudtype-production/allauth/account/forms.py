@@ -102,12 +102,13 @@ class LoginForm(forms.Form):
                 attrs={
                     "placeholder": _("Email address"),
                     "autocomplete": "email",
+                    "class": "form-control"
                 }
             )
             login_field = forms.EmailField(label=_("Email"), widget=login_widget)
         elif app_settings.AUTHENTICATION_METHOD == AuthenticationMethod.USERNAME:
             login_widget = forms.TextInput(
-                attrs={"placeholder": _("아이디"), "autocomplete": "username"}
+                attrs={"placeholder": _("아이디"), "autocomplete": "username", "class": "form-control"}
             )
             login_field = forms.CharField(
                 label=_("Username"),
@@ -120,7 +121,7 @@ class LoginForm(forms.Form):
                 == AuthenticationMethod.USERNAME_EMAIL
             )
             login_widget = forms.TextInput(
-                attrs={"placeholder": _("Username or email"), "autocomplete": "email"}
+                attrs={"placeholder": _("Username or email"), "autocomplete": "email", "class": "form-control"}
             )
             login_field = forms.CharField(
                 label=pgettext("field label", "Login"), widget=login_widget
