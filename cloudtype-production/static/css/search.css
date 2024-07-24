@@ -25,6 +25,7 @@ form {
     border: none;
     outline: none;
     font-size: 14px;
+    width: 100%;
 }
 
 #search-input::placeholder {
@@ -33,13 +34,17 @@ form {
 
 .filter-buttons {
     display: flex;
-    gap: 10px; /* 버튼들 간의 간격을 설정 */
+    gap: 10px;
+    flex-wrap: wrap;
+    justify-content: flex-start; /* 왼쪽 정렬로 변경 */
+    width: 100%; /* 전체 너비를 사용하도록 설정 */
+    align-items: center; /* 세로 중앙 정렬 */
 }
 
 .filter-buttons .btn {
     padding: 5px 20px;
     font-size: 12px;
-    border-radius: 25px; /* 모서리를 둥글게 설정 */
+    border-radius: 25px;
     background-color: white;
     color: #ff8244;
     border: 2px solid #ff8244;
@@ -60,6 +65,7 @@ form {
 
 #results-container {
     margin-top: 10px;
+    width: 100%;
 }
 
 #results-list {
@@ -69,10 +75,12 @@ form {
     padding: 0;
     align-items: center;
     align-content: center;
+    width: 100%;
 }
 
 #results-list .card {
-    width: 480px;
+    width: 100%;
+    max-width: 480px;
     margin-bottom: 20px;
     border: 1px solid #e0e0e0;
     border-radius: 10px;
@@ -82,10 +90,12 @@ form {
 #results-list .card-content {
     display: flex;
     position: relative;
+    flex-wrap: wrap;
 }
 
 #results-list .card-image {
     flex: 0 0 25%;
+    min-width: 80px;
     padding: 1%;
 }
 
@@ -98,6 +108,7 @@ form {
 #results-list .card-body {
     flex: 1;
     padding: 15px;
+    min-width: 200px;
 }
 
 #results-list .card-title {
@@ -111,11 +122,11 @@ form {
 }
 
 .btn-primary {
-    position: absolute;
-    bottom: 15px;
-    right: 15px;
+    position: static;
+    margin-top: 10px;
     background-color: #ff8244;
     border: none;
+    width: 100%;
 }
 
 .btn-outline-primary {
@@ -129,20 +140,14 @@ form {
 }
 
 .sticky-container {
-    position: -webkit-sticky; /* Safari */
+    position: -webkit-sticky;
     position: sticky;
     top: 40px;
     background-color: white;
     z-index: 1;
     padding: 10px 0;
-    width: 480px;
-}
-
-@media (max-width: 480px) {
-    .card,
-    .mt-4 {
-        width: 100%;
-    }
+    width: 100%;
+    max-width: 480px;
 }
 
 div.frame {
@@ -150,9 +155,53 @@ div.frame {
     flex-direction: column;
     align-items: center;
     margin-bottom: 60px;
+    width: 100%;
 }
 
 div.filter {
+    display: flex;
     align-items: center;
-    align-content: center;
+}
+
+.filter-group {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+@media (max-width: 480px) {
+    .sticky-container {
+        padding: 10px;
+    }
+
+    #results-list .card-image {
+        flex: 0 0 100%;
+        padding: 0;
+    }
+
+    #results-list .card-body {
+        padding: 10px;
+    }
+
+    #results-list .card-title {
+        font-size: 16px;
+    }
+
+    #results-list .card-text {
+        font-size: 12px;
+    }
+
+    .btn-primary {
+        font-size: 14px;
+    }
+
+    .filter-buttons {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .filter-group {
+        width: 100%;
+        justify-content: space-between;
+    }
 }
