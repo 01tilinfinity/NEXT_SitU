@@ -184,6 +184,7 @@ p {
 
     .button-grid {
         grid-template-columns: repeat(4, 1fr);
+        grid-auto-rows: minmax(80px, auto);
         gap: 5px;
     }
 
@@ -224,7 +225,8 @@ p {
 
 @media (max-width: 480px) {
     .button-grid {
-        grid-template-columns: repeat(2, 1fr);
+        grid-template-columns: repeat(4, 1fr);
+        grid-auto-rows: minmax(80px, auto);
     }
 
     .square-button {
