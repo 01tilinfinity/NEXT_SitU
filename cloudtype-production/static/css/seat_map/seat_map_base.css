@@ -10,12 +10,13 @@ body {
     justify-content: space-between;
     width: 100%;
     padding: 20px 0;
-    width: 570px;
+    width: 550px;
 }
 
 .cafe_info {
     background-color: #ffffff;
     width: 250px;
+    margin-left: 10px;
 }
 
 .cafe_time {
@@ -26,7 +27,6 @@ body {
     letter-spacing: -1.05px;
     line-height: normal;
     margin: 0;
-    margin-left: 5px;
 }
 
 .cafe_name {
@@ -34,7 +34,7 @@ body {
     font-family: 'Pretendard-ExtraBold';
     font-weight: 800;
     color: #ff8244;
-    font-size: 48px;
+    font-size: 40px;
     letter-spacing: -3.84px;
     top: 22px;
     left: 9px;
@@ -70,7 +70,7 @@ hr {
     background: rgba(255, 130, 68, 0.5);
     margin-bottom: 0;
     height: 5px;
-    width: 570px;
+    width: 550px;
     border: none;
     margin: 0; /* Center the <hr> horizontally */
 }
@@ -109,7 +109,7 @@ hr {
     background-color: white;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     z-index: 1000;
-    width: 390px; /* Fixed width */
+    width: 480px; /* Fixed width */
     height: auto; /* Allows the popup to expand vertically as needed */
     max-height: calc(100vh - 20px); /* Ensures the popup doesn't overflow the viewport */
     overflow-y: auto; /* Enables vertical scrolling if content exceeds viewport height */
@@ -123,6 +123,7 @@ hr {
 
 #popup-content {
     margin-bottom: 20px;
+    padding-top: 20px;
     color: #333333;
     font-family: 'Pretendard';
     font-size: 16px;
@@ -134,7 +135,11 @@ hr {
 }
 #popup-content h1 {
     margin-bottom: 0px;
+    font-weight: 700;
+    letter-spacing: -3px;
+    font-size: 38px;
 }
+
 #popup-content p {
     margin-top: 2px;
     margin-bottom: 25px;
@@ -160,7 +165,7 @@ hr {
     padding: 2px 8px;
     border-radius: 10px;
     font-family: 'Pretendard';
-    font-size: 16px;
+    font-size: 14px;
     font-style: normal;
     color: #ff8244;
     background-color: white;
@@ -219,9 +224,7 @@ hr {
 
 /* Available 상태의 좌석 스타일 */
 #floor1 .seat[data-status='available'] .chair,
-#floor1 .seat[data-status='available'] .table,
-#floor1 .seat[data-status='available'] .box,
-#floor1 .seat[data-status='available'] .studyroom {
+#floor1 .seat[data-status='available'] .table {
     background-color: white; /* 의자 및 테이블 색상 (available 상태) */
     color: #ff8244; /* 글씨 색상 */
     border: 2px solid #ff8244; /* 테두리 색상 (선택적) */
@@ -244,13 +247,7 @@ hr {
 #floor2 .seat[data-status='requesting'] .chair,
 #floor2 .seat[data-status='occupied'] .table,
 #floor2 .seat[data-status='reserved'] .table,
-#floor2 .seat[data-status='requesting'] .table,
-#floor2 .seat[data-status='occupied'] .box,
-#floor2 .seat[data-status='reserved'] .box,
-#floor2 .seat[data-status='requesting'] .box,
-#floor2 .seat[data-status='occupied'] .studyroom,
-#floor2 .seat[data-status='reserved'] .studyroom,
-#floor2 .seat[data-status='requesting'] .studyroom {
+#floor2 .seat[data-status='requesting'] .table {
     background-color: #4a4949; /* 의자 및 테이블 색상 (occupied, reserved, requesting 상태) */
     border: 2px solid #4a4949; /* 테두리 색상 */
     color: white; /* 글씨 색상 */
