@@ -8,8 +8,8 @@
     {% else %} {% for favorite in likes %}
     <div class="card mb-3">
         <div class="card-content">
-            <div class="card-image">
-                <img src="{%static 'img/cafe_photo_1.png'%}" class="card-img" alt="{{ favorite.cafe.cafe_name }}" />
+           <div class="card-image">
+                <img src="{% static 'img/' %}{{ favorite.cafe.id }}.jpg" class="card-img" alt="{{ cafe.cafe_name }}" />
             </div>
             <div class="card-body">
                 <h5 class="card-title">
