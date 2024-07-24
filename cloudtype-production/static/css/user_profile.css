@@ -14,22 +14,25 @@ body {
 .screen {
     display: flex;
     justify-content: center;
+    padding: 20px;
 }
 
 .profile-container {
-    width: 480px;
+    width: 100%;
+    max-width: 480px;
     background-color: #ffffff;
 }
 
 h2 {
     color: var(--secondary-color);
     margin-bottom: 30px;
+    font-size: 1.5rem;
 }
 
 h3 {
     color: var(--primary-color);
-    margin-bottom: 30px;
-    font-size: 20px;
+    margin-bottom: 15px;
+    font-size: 1.25rem;
     font-weight: 700;
 }
 
@@ -39,12 +42,13 @@ h3 {
 
 .profile-info p {
     margin-bottom: 10px;
-    font-size: 1.2rem;
+    font-size: 1rem;
 }
 
 .profile-actions {
     display: flex;
     gap: 10px;
+    flex-wrap: wrap;
 }
 
 .reservations {
@@ -62,7 +66,7 @@ h3 {
     margin-bottom: 5px;
     border-radius: 20px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    font-size: 1.2rem;
+    font-size: 1rem;
 }
 
 button,
@@ -72,11 +76,12 @@ button,
     background-color: var(--primary-color);
     color: white;
     border: none;
-    padding: 5px;
+    padding: 10px;
     border-radius: 20px;
     font-size: 1rem;
     font-weight: 700;
     text-align: center;
+    cursor: pointer;
 }
 
 .btn:hover {
@@ -97,6 +102,7 @@ button,
 .button-container {
     display: flex;
     gap: 10px;
+    flex-wrap: wrap;
 }
 
 .separator {
@@ -114,7 +120,7 @@ button,
 }
 
 .card {
-    width: 480px;
+    width: 100%;
     margin-bottom: 20px;
     border: 1px solid #e0e0e0;
     border-radius: 10px;
@@ -124,10 +130,12 @@ button,
 .card-content {
     display: flex;
     position: relative;
+    flex-wrap: wrap;
 }
 
 .card-image {
     flex: 0 0 25%;
+    min-width: 80px;
     padding: 1%;
 }
 
@@ -140,19 +148,46 @@ button,
 .card-body {
     flex: 1;
     padding: 15px;
+    min-width: 200px;
 }
 
 .card-title {
-    font-size: 18px;
+    font-size: 1.125rem;
     margin-bottom: 10px;
 }
 
 .card-text {
-    font-size: 14px;
+    font-size: 0.875rem;
     color: #757575;
 }
 
-div.card-content {
-    border: 1px;
-    border-color: #333333;
+@media (max-width: 480px) {
+    .profile-container {
+        padding: 0 15px;
+    }
+
+    h2 {
+        font-size: 1.25rem;
+    }
+
+    h3 {
+        font-size: 1.125rem;
+    }
+
+    .card-image {
+        flex: 0 0 100%;
+        padding: 0;
+    }
+
+    .card-body {
+        padding: 10px;
+    }
+
+    .card-title {
+        font-size: 1rem;
+    }
+
+    .card-text {
+        font-size: 0.75rem;
+    }
 }
