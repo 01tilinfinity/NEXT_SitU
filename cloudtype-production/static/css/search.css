@@ -35,26 +35,20 @@ form {
 .filter-buttons {
     display: flex;
     gap: 10px;
-    flex-wrap: nowrap; /* 줄바꿈 방지 */
-    justify-content: flex-start; /* 왼쪽 정렬 */
-    width: 100%;
-    align-items: center;
-    overflow-x: auto; /* 가로 스크롤 허용 */
-    padding-bottom: 5px; /* 스크롤바를 위한 여백 */
+    flex-wrap: wrap;
+    justify-content: flex-start; /* 왼쪽 정렬로 변경 */
+    width: 100%; /* 전체 너비를 사용하도록 설정 */
+    align-items: center; /* 세로 중앙 정렬 */
 }
 
-.filter-buttons .btn {
-    padding: 5px 20px;
-    font-size: 12px;
-    border-radius: 25px;
-    background-color: white;
-    color: #ff8244;
-    border: 2px solid #ff8244;
-    cursor: pointer;
-    transition: background-color 0.3s, color 0.3s;
-    white-space: nowrap; /* 버튼 텍스트 줄바꿈 방지 */
-    flex-shrink: 0; /* 축소 방지 */
-}
+.filter-buttons {
+    display: flex;
+    flex-wrap: nowrap;
+    align-items: center;
+    width: 100%;
+    gap: 10px;
+    overflow-x: auto;
+    padding: 10px 0;
 }
 
 .filter-buttons .btn.active {
@@ -163,18 +157,22 @@ div.frame {
     width: 100%;
 }
 
-div.filter {
-    flex-shrink: 0; /* 축소 방지 */
-}
-
-
+.filter,
 .filter-group {
     display: flex;
     align-items: center;
-    gap: 10px;
-    flex-shrink: 0; /* 축소 방지 */
+    white-space: nowrap;
 }
 
+.filter-group {
+    gap: 10px;
+}
+
+.filter-buttons .btn {
+    flex-shrink: 0;
+    padding: 5px 15px;
+    font-size: 14px;
+}
 
 @media (max-width: 480px) {
     .sticky-container {
@@ -203,18 +201,11 @@ div.filter {
     }
 
     .filter-buttons {
-        flex-direction: column;
-        align-items: flex-start;
-        justify-content: flex-start; 
+        justify-content: flex-start;
     }
 
-     .filter-buttons .btn {
-        padding: 5px 15px; /* 모바일에서 버튼 패딩 축소 */
-        font-size: 11px; /* 모바일에서 폰트 크기 축소 */
-    }
-    
-    .filter-group {
-        width: 100%;
-        justify-content: space-between;
+    .filter-buttons .btn {
+        padding: 5px 10px;
+        font-size: 12px;
     }
 }
