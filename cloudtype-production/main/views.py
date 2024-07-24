@@ -61,10 +61,11 @@ def home(request):
     if user_lat and user_lng:
         user_lat = float(user_lat)
         user_lng = float(user_lng)
+        user_location = (user_lat, user_lng)
+        
         for cafe in Cafe.objects.all():
             if cafe.latitude and cafe.longitude:
                 cafe_location = (cafe.latitude, cafe.longitude)
-                user_location = (user_lat, user_lng)
                 dist = distance(user_location, cafe_location).km
                 if dist <= 3:
                     nearby_cafes.append({
@@ -75,6 +76,9 @@ def home(request):
                         'cafe_photo': cafe.cafe_photo.url if cafe.cafe_photo else '',
                         'distance': round(dist, 2)
                     })
+        
+        # 거리 순으로 정렬 후 상위 3개의 카페만 선택
+        nearby_cafes = sorted(nearby_cafes, key=lambda x: x['distance'])[:3]
 
     context = {
         'areas': areas,
